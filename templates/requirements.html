@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Requirements{% endblock %}
+{% block content %}
+<h1>This is the Requirements Page!</h1>
+<ul class="req-list">
+    <li>
+        You are allowed to work in teams but you will be expected to present 
+        individually and share/host your own code and url.
+    </li>
+    <li>
+        You will need to use Python and Flask to build your solution.
+    </li>
+    <li>You will need to provide a login screen for authentication.</li>
+    <ul>
+        <li>You can use Auth0 for this our implement your own solution.</li>
+    </ul>
+    <li>
+        You will need to host the code in a cloud provider, ie. AWS, Heroku, 
+        Google Cloud, etc.
+    </li>
+    <li>
+        Upon logging in you will be expected to present a sample 
+        static feed off of files hosted by you and handled by 
+        your server side.
+    </li>
+    <ul>
+        <li>
+            If the file is hosted by google, YouTube or any other provider 
+            then it is not valid.
+        </li>
+        <li>I will need to see the packages being buffered in the feed.</li>
+    </ul>
+    <li>
+        Upon logging in you will be expected to present a sample live feed 
+        handled by your server side.
+    </li>
+    <ul>
+        <li>
+            You will be asked to greet the class real time and describe the 
+            technology being used to stream
+        </li>
+    </ul>
+
+    <li>
+        Feel free to research the best solution and adhere to the technology 
+        platforms described above.
+    </li>
+    <li>
+        Presentations will be held during our regular scheduled weekly meetings 
+        up-to and including the day of the final.
+    </li>
+</ul>
+{% endblock %}

@@ -1,65 +1,16 @@
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background: lightblue;
-  height: 20vh;
-  color: black;
-  gap: 1rem;
-}
-
-header button {
-  background: #00d9ff;
-  cursor: pointer;
-}
-
-header button:hover {
-  background: red;
-}
-
-header button::after {
-  content: " After";
-}
-
-header button::before {
-  content: "Before ";
-}
-
-.navbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+nav {
   padding: 0.5rem;
-  background-color: #c8c8c8;
-  color: black;
+  background-color: gainsboro;
 }
 
-.navbar a {
+nav a {
+  color: black;
   padding: 0 1rem;
   text-decoration: none;
+  font-size: 1.6rem;
 }
 
-.navbar a:hover {
+nav a:hover {
   text-decoration: underline;
 }
 /*# sourceMappingURL=style.css.map */

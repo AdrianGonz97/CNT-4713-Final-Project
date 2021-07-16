@@ -1,18 +1,17 @@
-@import "./variables";
-@import "./header";
+@import "variables", "mixins";
 
 body {
     //background: darkblue;
 }
 
-.navbar {
-    @include flexCenter(row);
+nav {
     padding: 0.5rem;
     background-color: $navBackColor;
-    color: black;
     a {
+        color: black;
         padding: 0 1rem;
         text-decoration: none;
+        font-size: $mdFontSize;
     }
     a:hover {
         text-decoration: underline;
