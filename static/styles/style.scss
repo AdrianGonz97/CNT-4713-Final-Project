@@ -1,0 +1,20 @@
+@import "./variables";
+@import "./header";
+
+body {
+    //background: darkblue;
+}
+
+.navbar {
+    @include flexCenter(row);
+    padding: 0.5rem;
+    background-color: $navBackColor;
+    color: black;
+    a {
+        padding: 0 1rem;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
