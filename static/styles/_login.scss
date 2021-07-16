@@ -1,0 +1,21 @@
+@import "mixins";
+
+form {
+    @include flexCenter(column);
+    padding: 0.5rem;
+    input {
+        font-size: $smFontSize;
+        margin: 0.5rem;
+    }
+    label {
+        font-size: $smFontSize;
+    }
+}
+
+.signup-here {
+    // font-size: $smFontSize;
+    @include flexCenter(column);
+    a {
+        color: blue;
+    }
+}
