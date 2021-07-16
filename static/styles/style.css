@@ -49,6 +49,10 @@ form label {
   color: blue;
 }
 
+body {
+  background: whitesmoke;
+}
+
 nav {
   padding: 0.5rem;
   background-color: gainsboro;

@@ -1,6 +1,12 @@
+import os
 from flask import Flask, redirect, url_for, render_template, request, session
+from dotenv import load_dotenv
+
+load_dotenv()
+SERVER_SECRET = os.getenv('SERVER_SECRET')
 
 app = Flask(__name__)
+app.secret_key = SERVER_SECRET
 
 @app.route("/")
 def home():
@@ -10,9 +16,8 @@ def home():
 def login():
     if request.method == "POST":
         username = request.form["username"]
-        password = request.form["password"]
+        # password = request.form["password"]
         session["user"] = username
-
         return redirect(url_for("user", username=username))
     else:
         return render_template("login.html")
