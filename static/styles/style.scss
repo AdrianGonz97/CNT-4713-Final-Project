@@ -1,7 +1,13 @@
 @import "variables", "mixins", "requirements", "login", "register";
 
 body {
-    background: whitesmoke;
+    background: $globalBackgroundColor;
+    // padding: 10vh;
+    min-height: 100vh;
+}
+
+h1 {
+    @include flexCenter(row);
 }
 
 nav {
@@ -15,5 +21,23 @@ nav {
     }
     a:hover {
         text-decoration: underline;
+    }
+}
+
+footer {
+    margin-top: 15rem;
+    background-color: $navBackColor;
+    height: 15rem;
+    @include flexCenter(row);
+    div {
+        // vertical-align: bottom;
+        @include flexCenter(column);
+        a,
+        p {
+            font-size: $smFontSize;
+        }
+        a {
+            color: blue;
+        }
     }
 }

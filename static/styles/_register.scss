@@ -11,7 +11,3 @@ form {
         font-size: $smFontSize;
     }
 }
-
-h1 {
-    @include flexCenter(row);
-}

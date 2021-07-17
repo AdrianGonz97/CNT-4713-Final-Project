@@ -1,6 +1,10 @@
+@import "variables";
+
 .req-list {
+    @include flexCenter(row);
     li {
         font-size: $smFontSize;
+        margin: 0.3rem 0;
         padding: 0.5rem;
     }
 }
