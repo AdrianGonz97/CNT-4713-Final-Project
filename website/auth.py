@@ -22,14 +22,14 @@ def login():
                 session["streamkey"] = found_user.streamkey
                 # creates a session for the user
                 session["username"] = username
-                flash("You have successfully logged in!")
-                return redirect(url_for("dashboard"))
+                flash("You have successfully logged in!", category="success")
+                return redirect(url_for("views.dashboard"))
             else: # if the passwords don't match
-                flash("Username and password do not match!")
-                return redirect(url_for("login"))
+                flash("Username and password do not match!", category="error")
+                return redirect(url_for("auth.login"))
         else: # if the username dne
-            flash("Username does not exist!")
-            return redirect(url_for("login"))        
+            flash("Username does not exist!", category="error")
+            return redirect(url_for("auth.login"))        
     else:
         # route to dashboard if user is already logged in 
         if "username" in session and "streamkey" in session:
@@ -44,8 +44,8 @@ def logout():
         username = session["username"]
         session.pop("username", None)
         session.pop("streamkey", None)
-        flash(f"You have logged out as {username}!", "info")
-    return redirect(url_for("login"))
+        flash(f"You have logged out as {username}!", category="info")
+    return redirect(url_for("auth.login"))
 
 # user registration page
 @auth.route("/register", methods=['POST', "GET"])
@@ -61,8 +61,8 @@ def register():
                 # check if the user already exists in the db
                 found_user = users.query.filter_by(username=username).first()
                 if found_user: # if the user already exists..
-                    flash("Username already exists!")
-                    return redirect(url_for("register"))
+                    flash("Username already exists!", category="error")
+                    return redirect(url_for("auth.register"))
                 else:
                     # success! hash password and create a user model
                     hashed_pass = hash_password(password) # hashes password
@@ -70,14 +70,14 @@ def register():
                     # adds user to the db and commits
                     db.session.add(user)
                     db.session.commit()
-                    flash("You have successfully registered!")
-                    return redirect(url_for("login"))
+                    flash("You have successfully registered!", category="success")
+                    return redirect(url_for("auth.login"))
             else:
-                flash("The passwords and usernames cannot be blank!")
-                return redirect(url_for("register"))
+                flash("The passwords and usernames cannot be blank!", category="error")
+                return redirect(url_for("auth.register"))
         else: # if they don't match..
-            flash("The passwords do not match!")
-            return redirect(url_for("register"))
+            flash("The passwords do not match!", category="error")
+            return redirect(url_for("auth.register"))
     else: # otherwise, send to page
         return render_template("register.html")
 

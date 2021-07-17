@@ -1,4 +1,4 @@
-from flask import Blueprint, Flask, redirect, url_for, render_template, request, session, flash
+from flask import Blueprint, Flask, redirect, url_for, render_template, session, flash
 
 views = Blueprint('views', __name__)
 
@@ -17,8 +17,8 @@ def dashboard():
         streamkey = session["streamkey"]
         return render_template("dashboard.html", username=username, streamkey=streamkey)
     else: # otherwise, send to login
-        flash("You need to be logged in to access the dashboard!")
-        return redirect(url_for("login"))
+        flash("You need to be logged in to access the dashboard!", category="success")
+        return redirect(url_for("auth.login"))
 
 # routes to the about page
 @views.route("/about")
