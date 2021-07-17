@@ -17,6 +17,19 @@
         <a href="/logout">Logout</a>
         <a href="/register">Register</a>
     </nav>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    <p class="flash-msg error">ERROR: {{message}}</p>
+                {% elif category == 'info' %}
+                    <p class="flash-msg info">INFO: {{message}}</p>
+                {% elif category == 'success' %}
+                    <p class="flash-msg success">SUCCESS: {{message}}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     {% block content %}
     {% endblock %}
 </body>

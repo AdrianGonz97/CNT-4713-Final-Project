@@ -1,13 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Dashboard{% endblock %}
 {% block content %}
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        {% for msg in messages %}
-            <p class="flash-msg">{{msg}}</p>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
 <h1>{{username}}'s Dashboard</h1>
 <div class="dashboard-container">
     <p class="dashboard-p-label">Hover below to view your Stream-Key:</p>

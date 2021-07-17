@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p class="flash-msg">{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<h1>{{video_title}}'s Dashboard</h1>
+<video height="720" width="1280" controls>
+    <source src="{{ url_for('static', filename=f'videos/{video_id}.mp4') }}" type="video/mp4">
+    Your browser does not support HTML video.
+</video>
+{% endblock %}
