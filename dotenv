@@ -1,0 +1,2 @@
+SERVER_SECRET=
+DB_NAME=usersDB.sqlite3
