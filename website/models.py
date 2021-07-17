@@ -1,6 +1,6 @@
-import string
-import random
 from . import db
+import random
+import string
 
 # SQL model for a User
 class User(db.Model):

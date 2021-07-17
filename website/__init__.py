@@ -1,8 +1,7 @@
-from os import path, getenv
-
 from dotenv import load_dotenv
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from os import path, getenv
 
 # loads the secret for encryption from environment vars
 load_dotenv()

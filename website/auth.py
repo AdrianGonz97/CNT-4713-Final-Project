@@ -1,8 +1,8 @@
-from hashlib import pbkdf2_hmac
-from os import urandom
-from flask import Blueprint, Flask, redirect, url_for, render_template, request, session, flash
 from . import db
 from .models import User
+from flask import Blueprint, Flask, redirect, url_for, render_template, request, session, flash
+from hashlib import pbkdf2_hmac
+from os import urandom
 
 auth = Blueprint('auth', __name__)
 
