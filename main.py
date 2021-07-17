@@ -61,13 +61,13 @@ def login():
                 session["username"] = found_user.username
                 session["streamkey"] = found_user.streamkey
                 # creates a session for the user
-                session["user"] = username
+                session["username"] = username
                 flash("You have successfully logged in!")
                 return redirect(url_for("dashboard"))
             else: # if the passwords don't match
                 flash("Username and password do not match!")
                 return redirect(url_for("login"))
-        else: # if the user dne
+        else: # if the username dne
             flash("Username does not exist!")
             return redirect(url_for("login"))        
     else:
@@ -81,10 +81,10 @@ def login():
 @app.route("/logout")
 def logout():
     if "username" in session:
-        user = session["username"]
+        username = session["username"]
         session.pop("username", None)
         session.pop("streamkey", None)
-        flash(f"You have logged out as {user}!", "info")
+        flash(f"You have logged out as {username}!", "info")
     return redirect(url_for("login"))
 
 # user registration page
