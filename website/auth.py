@@ -1,5 +1,5 @@
-import hashlib
-
+from hashlib import pbkdf2_hmac
+from os import urandom
 from flask import Blueprint, Flask, redirect, url_for, render_template, request, session, flash
 from . import db
 from .models import User
@@ -16,7 +16,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
         # check if the user exists in the db
-        found_user = users.query.filter_by(username=username).first()
+        found_user = User.query.filter_by(username=username).first()
         if found_user:
             # if user found, check credentials
             if check_password(password, found_user.password):
@@ -35,7 +35,7 @@ def login():
     else:
         # route to dashboard if user is already logged in 
         if "username" in session and "streamkey" in session:
-            return redirect(url_for("dashboard"))
+            return redirect(url_for("views.dashboard"))
         else:
             return render_template("login.html")
 
@@ -61,7 +61,7 @@ def register():
             # and if the pass or username is not blank or empty
             if password and password.strip() and username and username.strip():
                 # check if the user already exists in the db
-                found_user = users.query.filter_by(username=username).first()
+                found_user = User.query.filter_by(username=username).first()
                 if found_user: # if the user already exists..
                     flash("Username already exists!", category="error")
                     return redirect(url_for("auth.register"))
@@ -85,8 +85,8 @@ def register():
 
 # hashes the password and returns the unicode to store
 def hash_password(password):
-    salt = os.urandom(16) # generates the salt
-    key = hashlib.pbkdf2_hmac(
+    salt = urandom(16) # generates the salt
+    key = pbkdf2_hmac(
         'sha256', # hash algorithm
         password.encode('utf-8'), # converts pass to bytes
         salt, 
@@ -98,5 +98,5 @@ def hash_password(password):
 def check_password(password, stored_password):
     salt = stored_password[:16] # length of salt
     key = stored_password[16:]
-    new_key = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
+    new_key = pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
     return key == new_key
