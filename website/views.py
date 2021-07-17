@@ -17,7 +17,7 @@ def dashboard():
         streamkey = session["streamkey"]
         return render_template("dashboard.html", username=username, streamkey=streamkey)
     else: # otherwise, send to login
-        flash("You need to be logged in to access the dashboard!", category="success")
+        flash("You need to be logged in to access the dashboard!", category="error")
         return redirect(url_for("auth.login"))
 
 # routes to the about page
@@ -30,6 +30,13 @@ def about():
 def requirements():
     return render_template("requirements.html")
 
+# logged in users can routes to the video page to view static files
 @views.route("/videos/<video_id>")
-def videos(video_id):
-    return render_template("videos.html", video_id=video_id)
+def video(video_id):
+    # if the user is logged in
+    if "username" in session and "streamkey" in session:
+        # route user to video
+        return render_template("video.html", video_id=video_id)
+    else: # otherwise, send to login
+        flash("You need to be logged in to access videos!", category="error")
+        return redirect(url_for("auth.login"))

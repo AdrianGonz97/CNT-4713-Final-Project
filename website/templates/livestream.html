@@ -8,9 +8,9 @@
         {% endfor %}
     {% endif %}
 {% endwith %}
-<h1>Video Viewer - {{video_id}}</h1>
+<h1>{{username}}'s Live Video Stream</h1>
 <video height="720" width="1280" controls>
-    <source src="{{ url_for('static', filename='videos/' + video_id + '.mp4') }}" type="video/mp4">
+    <source src="{{ url_for('static', filename='videos/Australia - Cute Koala Bear eating Eucalyptus - Cooberrie Wildlife Park 2013 - Back Pack Australia.mp4') }}" type="video/mp4">
     Your browser does not support HTML video.
 </video>
 {% endblock %}

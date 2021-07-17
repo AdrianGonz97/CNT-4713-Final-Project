@@ -2,17 +2,35 @@
 
 .dashboard-container {
     @include flexCenter(column);
+
+    .stream-key {
+        padding: 0.5rem;
+        font-size: $mdFontSize;
+        background-color: black;
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    .dashboard-p-label {
+        font-size: $smFontSize;
+        margin: 1rem;
+    }
 }
 
-.dashboard-p-label {
+.static-video-container {
+    @include flexCenter(column);
+    padding: 1rem;
     font-size: $smFontSize;
-    margin: 1rem;
-}
-.stream-key {
-    padding: 0.5rem;
-    font-size: $mdFontSize;
-    background-color: black;
-    &:hover {
-        background-color: transparent;
+    border: 1px solid;
+    a {
+        margin: 1rem;
+        color: blue;
     }
+    p {
+    }
+}
+
+.static-videos {
+    @include flexCenter(row);
 }

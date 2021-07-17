@@ -8,9 +8,6 @@
         {% endfor %}
     {% endif %}
 {% endwith %}
-<h1>Video Viewer - {{video_id}}</h1>
-<video height="720" width="1280" controls>
-    <source src="{{ url_for('static', filename='videos/' + video_id + '.mp4') }}" type="video/mp4">
-    Your browser does not support HTML video.
-</video>
+<h1>Currently Live Streams</h1>
+
 {% endblock %}

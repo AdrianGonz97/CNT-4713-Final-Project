@@ -108,19 +108,59 @@ form label {
           flex-direction: column;
 }
 
-.dashboard-p-label {
-  font-size: 1.2rem;
-  margin: 1rem;
-}
-
-.stream-key {
+.dashboard-container .stream-key {
   padding: 0.5rem;
   font-size: 1.6rem;
   background-color: black;
 }
 
-.stream-key:hover {
+.dashboard-container .stream-key:hover {
   background-color: transparent;
+}
+
+.dashboard-container .dashboard-p-label {
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.static-video-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 1px solid;
+}
+
+.static-video-container a {
+  margin: 1rem;
+  color: blue;
+}
+
+.static-videos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 body {
@@ -175,6 +215,11 @@ nav a:hover {
       -ms-flex-direction: row;
           flex-direction: row;
   font-size: 1.2rem;
+}
+
+video {
+  display: block;
+  margin: 0 auto;
 }
 
 .info,
