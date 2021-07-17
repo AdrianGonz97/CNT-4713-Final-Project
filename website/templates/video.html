@@ -9,9 +9,8 @@
     {% endif %}
 {% endwith %}
 <h1>{{video_title}}'s Dashboard</h1>
-<video width="400" controls>
-    <!-- <source src="mov_bbb.mp4" type="video/mp4"> -->
-    <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
+<video height="720" width="1280" controls>
+    <source src="{{ url_for('static', filename='videos/{{video_id}}.mp4') }}" type="video/mp4">
     Your browser does not support HTML video.
 </video>
 {% endblock %}
