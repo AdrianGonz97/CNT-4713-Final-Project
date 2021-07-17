@@ -9,5 +9,10 @@
     {% endif %}
 {% endwith %}
 <h1>{{username}}'s Dashboard</h1>
-<p>This is where the cool stuff is going to be!</p>
+<div class="dashboard-container">
+    <p class="dashboard-p-label">Hover below to view your Stream-Key:</p>
+    <p class="stream-key">{{streamkey}}</p>
+    <p class="dashboard-p-label">To use, go to your OBS and paste your Stream-Key.</p>
+    <p class="dashboard-p-label">Enter this server URL into the textbox:</p>
+</div>
 {% endblock %}

@@ -92,6 +92,37 @@ form label {
   font-size: 1.2rem;
 }
 
+.dashboard-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-p-label {
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+
+.stream-key {
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  background-color: black;
+}
+
+.stream-key:hover {
+  background-color: transparent;
+}
+
 body {
   background: whitesmoke;
   min-height: 100vh;

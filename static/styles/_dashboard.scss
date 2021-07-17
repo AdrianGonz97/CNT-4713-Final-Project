@@ -1,0 +1,18 @@
+@import "mixins", "variables";
+
+.dashboard-container {
+    @include flexCenter(column);
+}
+
+.dashboard-p-label {
+    font-size: $smFontSize;
+    margin: 1rem;
+}
+.stream-key {
+    padding: 0.5rem;
+    font-size: $mdFontSize;
+    background-color: black;
+    &:hover {
+        background-color: transparent;
+    }
+}

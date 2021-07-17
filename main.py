@@ -37,6 +37,7 @@ class users(db.Model):
         # generates a random stream key
         letters = string.ascii_letters
         self.streamkey = ''.join(random.choice(letters) for i in range(25))
+        print(self.streamkey)
 
 # routes to home page
 @app.route("/")
@@ -55,25 +56,34 @@ def login():
         # check if the user exists in the db
         found_user = users.query.filter_by(username=username).first()
         if found_user:
-            print(found_user)
-
-        # creates a session for the user
-        session["user"] = username
-        flash("You have successfully logged in!")
-        return redirect(url_for("dashboard"))
+            # if found, check credentials
+            if password == found_user.password:
+                session["username"] = found_user.username
+                session["streamkey"] = found_user.streamkey
+                # creates a session for the user
+                session["user"] = username
+                flash("You have successfully logged in!")
+                return redirect(url_for("dashboard"))
+            else: # if the passwords don't match
+                flash("Username and password do not match!")
+                return redirect(url_for("login"))
+        else: # if the user dne
+            flash("Username does not exist!")
+            return redirect(url_for("login"))        
     else:
         # route to dashboard if user is already logged in 
-        if "user" in session:
+        if "username" in session and "streamkey" in session:
             return redirect(url_for("dashboard"))
-        
-        return render_template("login.html")
+        else:
+            return render_template("login.html")
 
 # user logout page
 @app.route("/logout")
 def logout():
-    if "user" in session:
-        user = session["user"]
-        session.pop("user", None)
+    if "username" in session:
+        user = session["username"]
+        session.pop("username", None)
+        session.pop("streamkey", None)
         flash(f"You have logged out as {user}!", "info")
     return redirect(url_for("login"))
 
@@ -94,7 +104,7 @@ def register():
                     flash("Username already exists!")
                     return redirect(url_for("register"))
                 else:
-                    # creates a user model
+                    # success! creates a user model
                     user = users(username, password, "", "")
                     # adds user to the db and commits
                     db.session.add(user)
@@ -114,10 +124,11 @@ def register():
 @app.route("/dashboard")
 def dashboard():
     # if a user already has a session..
-    if "user" in session:
+    if "username" in session and "streamkey" in session:
         # route user to dashboard
-        user = session["user"]
-        return render_template("dashboard.html", username=user)
+        username = session["username"]
+        streamkey = session["streamkey"]
+        return render_template("dashboard.html", username=username, streamkey=streamkey)
     else: # otherwise, send to login
         flash("You need to be logged in to access the dashboard!")
         return redirect(url_for("login"))
