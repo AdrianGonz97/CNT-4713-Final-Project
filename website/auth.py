@@ -1,6 +1,8 @@
 import hashlib
 
 from flask import Blueprint, Flask, redirect, url_for, render_template, request, session, flash
+from . import db
+from .models import User
 
 auth = Blueprint('auth', __name__)
 
@@ -66,7 +68,7 @@ def register():
                 else:
                     # success! hash password and create a user model
                     hashed_pass = hash_password(password) # hashes password
-                    user = users(username, hashed_pass, "", "")
+                    user = User(username, hashed_pass, "", "")
                     # adds user to the db and commits
                     db.session.add(user)
                     db.session.commit()
