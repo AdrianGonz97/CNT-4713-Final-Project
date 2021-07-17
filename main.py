@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, redirect, url_for, render_template, request, session
+from flask import Flask, redirect, url_for, render_template, request, session, flash
 from datetime import timedelta
 
 # loads the secret for encryption from environment vars
@@ -39,7 +39,10 @@ def login():
 # user logout page
 @app.route("/logout")
 def logout():
-    session.pop("user", None)
+    if "user" in session:
+        user = session["user"]
+        session.pop("user", None)
+        flash(f"You have logged out as {user}!", "info")
     return redirect(url_for("login"))
 
 # user registration page

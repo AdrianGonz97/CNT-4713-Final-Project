@@ -12,14 +12,6 @@ form {
     }
 }
 
-.signup-here {
-    @include flexCenter(column);
-    a {
-        color: blue;
-    }
-}
-
-h1,
-p {
+h1 {
     @include flexCenter(row);
 }
