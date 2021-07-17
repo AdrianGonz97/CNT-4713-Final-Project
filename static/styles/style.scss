@@ -2,7 +2,6 @@
 
 body {
     background: $globalBackgroundColor;
-    // padding: 10vh;
     min-height: 100vh;
 }
 
@@ -22,6 +21,10 @@ nav {
     a:hover {
         text-decoration: underline;
     }
+}
+
+.flash-msg {
+    @include flexCenter(row);
 }
 
 footer {
