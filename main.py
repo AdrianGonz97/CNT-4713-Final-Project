@@ -1,6 +1,7 @@
 import os
 import string
 import random
+import hashlib
 
 from dotenv import load_dotenv
 from flask import Flask, redirect, url_for, render_template, request, session, flash
@@ -24,7 +25,7 @@ db = SQLAlchemy(app)
 class users(db.Model):
     _id = db.Column("id", db.Integer, primary_key=True)
     username = db.Column(db.String(100))
-    password = db.Column(db.String(100))
+    password = db.Column(db.LargeBinary(32))
     email = db.Column(db.String(100))
     token = db.Column(db.String(100))
     streamkey = db.Column(db.String(25))
@@ -37,7 +38,6 @@ class users(db.Model):
         # generates a random stream key
         letters = string.ascii_letters
         self.streamkey = ''.join(random.choice(letters) for i in range(25))
-        print(self.streamkey)
 
 # routes to home page
 @app.route("/")
@@ -56,8 +56,8 @@ def login():
         # check if the user exists in the db
         found_user = users.query.filter_by(username=username).first()
         if found_user:
-            # if found, check credentials
-            if password == found_user.password:
+            # if user found, check credentials
+            if check_password(password, found_user.password):
                 session["username"] = found_user.username
                 session["streamkey"] = found_user.streamkey
                 # creates a session for the user
@@ -104,8 +104,9 @@ def register():
                     flash("Username already exists!")
                     return redirect(url_for("register"))
                 else:
-                    # success! creates a user model
-                    user = users(username, password, "", "")
+                    # success! hash password and create a user model
+                    hashed_pass = hash_password(password) # hashes password
+                    user = users(username, hashed_pass, "", "")
                     # adds user to the db and commits
                     db.session.add(user)
                     db.session.commit()
@@ -142,6 +143,24 @@ def about():
 @app.route("/requirements")
 def requirements():
     return render_template("requirements.html")
+
+# hashes the password and returns the unicode to store
+def hash_password(password):
+    salt = os.urandom(16) # generates the salt
+    key = hashlib.pbkdf2_hmac(
+        'sha256', # hash algorithm
+        password.encode('utf-8'), # converts pass to bytes
+        salt, 
+        100000 # num of iterations
+    )
+    return salt + key
+
+# checks hashed password vs the provided password
+def check_password(password, stored_password):
+    salt = stored_password[:16] # length of salt
+    key = stored_password[16:]
+    new_key = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
+    return key == new_key
 
 if __name__ == "__main__":
     db.create_all()
