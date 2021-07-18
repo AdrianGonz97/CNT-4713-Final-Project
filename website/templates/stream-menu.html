@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Videos{% endblock %}
+{% block title %}Streams{% endblock %}
 {% block content %}
 {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -8,6 +8,6 @@
         {% endfor %}
     {% endif %}
 {% endwith %}
-<h1>Currently Live Streams</h1>
+<h1>Active Live Streams</h1>
 
 {% endblock %}

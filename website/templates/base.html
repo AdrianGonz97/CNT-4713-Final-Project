@@ -13,10 +13,18 @@
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/requirements">Requirements</a>
-        <a href="/login">Login</a>
+        <a href="/streams">Live Streams</a>
+        <a href="/login">My Dashboard</a>
         <a href="/logout">Logout</a>
-        <a href="/register">Register</a>
+        <!-- <a href="/register">Register</a> -->
     </nav>
+    <script>
+        console.log(document.cookie.se)
+        if (document.cookie) {
+            console.log("piss")
+        }
+
+    </script>
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}

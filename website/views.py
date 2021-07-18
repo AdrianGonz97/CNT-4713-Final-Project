@@ -40,3 +40,25 @@ def video(video_id):
     else: # otherwise, send to login
         flash("You need to be logged in to access videos!", category="error")
         return redirect(url_for("auth.login"))
+
+# logged in users can route to the active streams page
+@views.route("/streams")
+def streams():
+    # if the user is logged in
+    if "username" in session and "streamkey" in session:
+        # route user to active streams menu
+        return render_template("stream-menu.html")
+    else: # otherwise, send to login
+        flash("You need to be logged in to access live streams!", category="error")
+        return redirect(url_for("auth.login"))
+
+# logged in users can route a user's live stream page
+@views.route("/user/<streamer_username>")
+def streams(streamer_username):
+    # if the user is logged in
+    if "username" in session and "streamkey" in session:
+        # route user streamer's live stream
+        return render_template("stream-menu.html")
+    else: # otherwise, send to login
+        flash("You need to be logged in to access live streams!", category="error")
+        return redirect(url_for("auth.login"))
