@@ -10,10 +10,15 @@ form {
     label {
         font-size: $smFontSize;
     }
+
+    .login-btn {
+        padding: 0.1rem 1rem;
+    }
 }
 
 .signup-here {
     @include flexCenter(column);
+    font-size: 1.1rem;
     a {
         color: blue;
     }
