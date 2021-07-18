@@ -1,0 +1,10 @@
+@import "mixins";
+
+.about-container {
+    @include flexCenter(column);
+    p {
+        font-size: $smFontSize;
+        border: 1px solid;
+        padding: 1rem;
+    }
+}
