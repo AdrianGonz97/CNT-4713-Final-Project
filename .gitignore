@@ -4,4 +4,4 @@ __pycache__/
 
 .env
 *.sqlite3
-*.mp4
+#*.mp4
