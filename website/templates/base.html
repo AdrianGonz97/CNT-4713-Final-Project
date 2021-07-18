@@ -18,13 +18,6 @@
         <a href="/logout">Logout</a>
         <!-- <a href="/register">Register</a> -->
     </nav>
-    <script>
-        console.log(document.cookie.se)
-        if (document.cookie) {
-            console.log("piss")
-        }
-
-    </script>
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
