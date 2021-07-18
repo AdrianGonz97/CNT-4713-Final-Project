@@ -7,6 +7,7 @@ from os import path, getenv
 load_dotenv()
 SERVER_SECRET = getenv('SERVER_SECRET')
 DB_NAME = getenv('DB_NAME')
+URL = getenv('URL')
 
 db = SQLAlchemy()
 

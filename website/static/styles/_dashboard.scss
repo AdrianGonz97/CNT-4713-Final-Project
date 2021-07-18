@@ -6,15 +6,11 @@
     .stream-key {
         padding: 0.5rem;
         font-size: $mdFontSize;
-        background-color: black;
-        &:hover {
-            background-color: transparent;
-        }
     }
 
     .dashboard-p-label {
         font-size: $smFontSize;
-        margin: 1rem;
+        margin: 0.5rem;
     }
 }
 

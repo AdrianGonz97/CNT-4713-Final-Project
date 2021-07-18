@@ -8,9 +8,26 @@
         {% endfor %}
     {% endif %}
 {% endwith %}
-<h1>{{username}}'s Live Video Stream</h1>
-<video height="720" width="1280" controls>
-    <source src="{{ url_for('static', filename='videos/Baby Koala Rescued.mp4') }}" type="video/mp4">
-    Your browser does not support HTML video.
-</video>
+<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+<h1>Welcome to {{username}}'s Live Stream</h1>
+<video-js id="vid" class="vjs-default-skin" controls preload="auto" width="1280" height="720">
+    <source src="{{ 'http://' + url + ':8080/hls/' + key + '.m3u8' }}" type="application/x-mpegURL">
+</video-js>
+
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+<script>
+    var player = videojs('vid', {
+        html5: {
+            vhs: {
+            overrideNative: true
+            },
+            nativeAudioTracks: false,
+            nativeVideoTracks: false,
+            liveRangeSafeTimeDelta: 10,
+            allowSeeksWithinUnsafeLiveWindow: true,
+        }
+    });
+    player.play();
+</script>
 {% endblock %}

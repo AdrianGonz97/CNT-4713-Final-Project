@@ -125,16 +125,11 @@ form .register-btn {
 .dashboard-container .stream-key {
   padding: 0.5rem;
   font-size: 1.6rem;
-  background-color: black;
-}
-
-.dashboard-container .stream-key:hover {
-  background-color: transparent;
 }
 
 .dashboard-container .dashboard-p-label {
   font-size: 1.2rem;
-  margin: 1rem;
+  margin: 0.5rem;
 }
 
 .static-video-container {
@@ -269,7 +264,7 @@ nav a:hover {
   font-size: 1.2rem;
 }
 
-video {
+#vid {
   display: block;
   margin: 0 auto;
 }

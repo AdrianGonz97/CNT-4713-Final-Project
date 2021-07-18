@@ -3,10 +3,11 @@
 {% block content %}
 <h1>Welcome to {{username}}'s Dashboard!</h1>
 <div class="dashboard-container">
-    <p class="dashboard-p-label">Hover below to view your Stream-Key:</p>
+    <p class="dashboard-p-label">You can view your Stream-Key below:</p>
     <p class="stream-key">{{streamkey}}</p>
-    <p class="dashboard-p-label">To use, go to your OBS and paste your Stream-Key.</p>
-    <p class="dashboard-p-label">Enter this server URL into the textbox:</p>
+    <p class="dashboard-p-label">To use, go to your OBS and paste as your "Stream Key".</p>
+    <p class="dashboard-p-label">Enter this server address into the "Server" field:</p>
+    <p class="stream-key">rtmp://{{url}}:1935/live</p>
 </div>
 
 <div class="dashboard-container">
