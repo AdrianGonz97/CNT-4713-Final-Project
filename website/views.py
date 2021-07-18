@@ -54,7 +54,7 @@ def streams():
 
 # logged in users can route a user's live stream page
 @views.route("/user/<streamer_username>")
-def streams(streamer_username):
+def user_stream(streamer_username):
     # if the user is logged in
     if "username" in session and "streamkey" in session:
         # route user streamer's live stream
