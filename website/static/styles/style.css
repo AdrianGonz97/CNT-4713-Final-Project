@@ -1,4 +1,4 @@
-.req-list {
+.req-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,10 +14,15 @@
           flex-direction: row;
 }
 
-.req-list li {
+.req-container li {
   font-size: 1.2rem;
   margin: 0.3rem 0;
   padding: 0.5rem;
+}
+
+.req-container .req-list {
+  padding: 2rem 4rem;
+  border: 1px solid;
 }
 
 form {
@@ -140,6 +145,7 @@ form label {
   padding: 1rem;
   font-size: 1.2rem;
   border: 1px solid;
+  margin-top: 5rem;
 }
 
 .static-video-container a {
@@ -161,6 +167,8 @@ form label {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 body {

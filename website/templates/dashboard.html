@@ -1,20 +1,23 @@
 {% extends "base.html" %}
 {% block title %}Dashboard{% endblock %}
 {% block content %}
-<h1>{{username}}'s Dashboard</h1>
+<h1>Welcome to {{username}}'s Dashboard!</h1>
 <div class="dashboard-container">
     <p class="dashboard-p-label">Hover below to view your Stream-Key:</p>
     <p class="stream-key">{{streamkey}}</p>
     <p class="dashboard-p-label">To use, go to your OBS and paste your Stream-Key.</p>
     <p class="dashboard-p-label">Enter this server URL into the textbox:</p>
 </div>
+
+<div class="dashboard-container">
 <div class="static-video-container">
-    <p>Click below to view one of our static videos!</p>
+    <p>Click a link below to view one of our static videos!</p>
     <div class="static-videos">
         <a href="/videos/Koalas 101 Nat Geo Wild">Koalas 101 Nat Geo Wild</a>
         <a href="/videos/Koala Bear Eating Eucalyptus">Koala Bear Eating Eucalyptus</a>
         <a href="/videos/Koala Loves Cuddles">Koala Loves Cuddles</a>
         <a href="/videos/Baby Koala Rescued">Baby Koala Rescued</a>
     </div>
+</div>
 </div>
 {% endblock %}

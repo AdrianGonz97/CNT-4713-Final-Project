@@ -23,14 +23,15 @@
     padding: 1rem;
     font-size: $smFontSize;
     border: 1px solid;
+    margin-top: 5rem;
     a {
         margin: 1rem;
         color: blue;
-    }
-    p {
     }
 }
 
 .static-videos {
     @include flexCenter(row);
+    padding: 1rem;
+    margin: 1rem;
 }
