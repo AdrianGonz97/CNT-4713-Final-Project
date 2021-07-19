@@ -42,6 +42,17 @@ def video(video_id):
         flash("You need to be logged in to access videos!", category="error")
         return redirect(url_for("auth.login"))
 
+# logged in users can routes to the video page to view static files
+@views.route("/videos")
+def videos():
+    # if the user is logged in
+    if "username" in session and "streamkey" in session:
+        # route user to video library
+        return render_template("videos.html")
+    else: # otherwise, send to login
+        flash("You need to be logged in to access videos!", category="error")
+        return redirect(url_for("auth.login"))
+
 # logged in users can route to the active streams page
 @views.route("/streams")
 def streams():

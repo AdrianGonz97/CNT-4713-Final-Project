@@ -12,7 +12,7 @@
     }
 }
 
-.static-video-container {
+.static-videos-container {
     @include flexCenter(column);
     padding: 1rem;
     font-size: $smFontSize;

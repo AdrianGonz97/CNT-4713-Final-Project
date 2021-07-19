@@ -1,0 +1,19 @@
+.videos-container {
+    @include flexCenter(column);
+}
+.static-video-container {
+    @include flexCenter(column);
+    font-size: $mdFontSize;
+}
+.static-video {
+    @include flexCenter(row);
+    padding: 1rem;
+    a {
+        text-align: center;
+        width: 20rem;
+        margin: 1rem;
+        padding: 2rem;
+        color: blue;
+        border: 1px solid black;
+    }
+}

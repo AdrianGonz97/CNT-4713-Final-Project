@@ -1,5 +1,6 @@
 @import "variables", "mixins";
-@import "requirements", "login", "register", "dashboard", "about", "streams";
+@import "requirements", "login", "register", "dashboard", "about", "streams",
+    "videos";
 
 body {
     background: $globalBackgroundColor;
@@ -8,6 +9,12 @@ body {
 
 h1 {
     @include flexCenter(row);
+}
+
+.page-instructions {
+    @include flexCenter(rows);
+    font-size: $smFontSize;
+    margin: 3rem;
 }
 
 nav {
