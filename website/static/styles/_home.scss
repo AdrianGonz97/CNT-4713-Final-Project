@@ -11,3 +11,9 @@
         color: blue;
     }
 }
+
+.welcome-box {
+    @include flexCenter(column);
+    border: 1px solid;
+    padding: 3rem;
+}

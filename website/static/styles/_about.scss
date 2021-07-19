@@ -1,8 +1,12 @@
 .about-container {
     @include flexCenter(column);
+    margin: 3rem;
     p {
         font-size: $smFontSize;
         border: 1px solid;
-        padding: 1rem;
+        padding: 3rem;
+        a {
+            color: blue;
+        }
     }
 }
