@@ -217,12 +217,17 @@ form .register-btn {
       flex-wrap: wrap;
 }
 
-.streams-container a {
+.streams-container .user-stream-link {
   color: blue;
   font-size: 1.6rem;
   margin: 1rem;
   padding: 2rem;
   border: 1px solid black;
+}
+
+.user-stream-name {
+  color: black;
+  font-weight: bold;
 }
 
 .videos-container {

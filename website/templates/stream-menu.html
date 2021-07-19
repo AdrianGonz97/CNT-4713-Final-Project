@@ -12,7 +12,9 @@
 <p class="page-instructions">Click on any of the links below to route to a User's live stream page!</p>
 <div class="streams-container">
     {% for user in users %}
-    <a class="user-stream-link" href="{{'/user/' + user.username}}">Visit {{user.username}}'s Live Stream!</a>
+    <a class="user-stream-link" href="{{'/user/' + user.username}}">
+        Visit <span class="user-stream-name">{{user.username}}</span>'s Live Stream!
+    </a>
     {% endfor %}
 </div>
 {% endblock %}

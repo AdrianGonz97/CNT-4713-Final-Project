@@ -2,11 +2,16 @@
     @include flexCenter(rows);
     margin: 3rem;
     flex-wrap: wrap;
-    a {
+    .user-stream-link {
         color: blue;
         font-size: $mdFontSize;
         margin: 1rem;
         padding: 2rem;
         border: 1px solid black;
     }
+}
+
+.user-stream-name {
+    color: black;
+    font-weight: bold;
 }
