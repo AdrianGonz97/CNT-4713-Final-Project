@@ -7,4 +7,4 @@ app = create_app()
 app.permanent_session_lifetime = timedelta(days=1)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

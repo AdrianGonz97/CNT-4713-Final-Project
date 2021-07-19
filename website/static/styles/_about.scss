@@ -1,5 +1,3 @@
-@import "mixins";
-
 .about-container {
     @include flexCenter(column);
     p {

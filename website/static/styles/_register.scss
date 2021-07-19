@@ -1,5 +1,3 @@
-@import "mixins";
-
 form {
     @include flexCenter(column);
     padding: 0.5rem;
