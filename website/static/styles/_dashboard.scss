@@ -2,8 +2,9 @@
     @include flexCenter(column);
 
     .stream-key {
-        padding: 0.5rem;
+        padding: 0.8rem;
         font-size: $mdFontSize;
+        border: 1px solid;
     }
 
     .dashboard-p-label {

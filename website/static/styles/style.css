@@ -123,8 +123,9 @@ form .register-btn {
 }
 
 .dashboard-container .stream-key {
-  padding: 0.5rem;
+  padding: 0.8rem;
   font-size: 1.6rem;
+  border: 1px solid;
 }
 
 .dashboard-container .dashboard-p-label {
