@@ -1,0 +1,13 @@
+.welcome-container {
+    @include flexCenter(column);
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.welcome-message {
+    font-size: $smFontSize;
+    text-align: center;
+    a {
+        color: blue;
+    }
+}

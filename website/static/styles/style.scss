@@ -1,6 +1,6 @@
 @import "variables", "mixins";
-@import "requirements", "login", "register", "dashboard", "about", "streams",
-    "videos";
+@import "home", "requirements", "login", "register", "dashboard", "about",
+    "streams", "videos";
 
 body {
     background: $globalBackgroundColor;
