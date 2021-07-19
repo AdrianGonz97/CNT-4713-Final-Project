@@ -9,5 +9,7 @@
     {% endif %}
 {% endwith %}
 <h1>Live Stream Endpoints</h1>
-
+{% for user in users %}
+<a class="user-stream-link" href="{{'/user/' + user.username}}">Visit {{user.username}} Stream!</a>
+{% endfor %}
 {% endblock %}

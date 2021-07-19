@@ -48,7 +48,9 @@ def streams():
     # if the user is logged in
     if "username" in session and "streamkey" in session:
         # route user to active streams menu
-        return render_template("stream-menu.html")
+        from .models import User
+        users = User.query.filter_by().all()
+        return render_template("stream-menu.html", users=users)
     else: # otherwise, send to login
         flash("You need to be logged in to access live streams!", category="error")
         return redirect(url_for("auth.login"))
